@@ -42,7 +42,7 @@ def main(args: argparse.Namespace) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help = "input file to the data")
-    parser.add_argument("train")
-    parser.add_argument("dev")
-    parser.add_argument("test")
+    parser.add_argument("train", help = "Outputs train set")
+    parser.add_argument("dev", help = "Outputs dev set")
+    parser.add_argument("test", help = "Outputs test set")
     main(parser.parse_args())
