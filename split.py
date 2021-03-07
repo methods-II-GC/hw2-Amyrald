@@ -30,6 +30,7 @@ def write_tag(data_set: list, file_tag: str) -> Iterator[List[List[str]]]:
 #Command line argument parsers
 def main(args: argparse.Namespace) -> None:
     corpus = list(read_tags(args.input))
+    random.seed(args.seed)
     random.shuffle(corpus)
     train_set = corpus[0: int(len(corpus)*0.8)-1]
     dev_set = corpus[int(len(corpus)*0.8) : int(-len(corpus)*0.1)]
@@ -41,6 +42,7 @@ def main(args: argparse.Namespace) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type = int, required = True, help = "Requied seed for random generator")
     parser.add_argument("input", help = "input file to the data")
     parser.add_argument("train", help = "Outputs train set")
     parser.add_argument("dev", help = "Outputs dev set")
