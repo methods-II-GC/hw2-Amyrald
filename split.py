@@ -5,7 +5,7 @@ from typing import Iterator, List
 import argparse
 import random
 
-#Generator function takes in a file path and creates a text data in nested lists
+#Reads text data from a file
 def read_tags(path: str) -> Iterator[List[List[str]]]:
     with open(path, "r") as source:
         lines = []
